@@ -45,4 +45,5 @@ export default class MCReactModule {
     static enableVerboseLogging(): void;
     static disableVerboseLogging(): void;
     static logSdkState(): void;
+    static list(filter: string, errorCallback: (fail: any) => void, successCallback: (count: number, smsList: string) => void): void;
 }

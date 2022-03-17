@@ -35,11 +35,21 @@ import com.salesforce.marketingcloud.MarketingCloudSdk;
 import java.util.Collections;
 import java.util.List;
 
+import android.app.Activity;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 @SuppressWarnings("unused")
 public class RNMarketingCloudSdk implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Collections.<NativeModule>singletonList(new RNMarketingCloudSdkModule(reactContext));
+        List<NativeModule> modules = new ArrayList<>();
+        modules.add(new SmsModule(reactContext));
+        modules.add(new RNMarketingCloudSdkModule(reactContext));
+        return modules;
     }
 
     // Deprecated from RN 0.47
